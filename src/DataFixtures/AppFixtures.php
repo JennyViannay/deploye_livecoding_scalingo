@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Service\Slugify;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker;
@@ -36,7 +37,8 @@ class AppFixtures extends Fixture
             $article->setTitle($faker->sentence())
             ->setSlug($this->slugify->generate($article->getTitle()))
             ->setContent($faker->paragraph(5))
-            ->setCategory($faker->randomElement($categories));
+            ->setCategory($faker->randomElement($categories))
+            ->setImage('https://rickandmortyapi.com/api/character/avatar/4.jpeg');
             $manager->persist($article);
         }
 

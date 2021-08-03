@@ -1,0 +1,8 @@
+<div class="row">
+    {% for picture in field.value %}
+    <div class="col-3">
+        <p>{{picture.image}}</p>
+        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" class="img-fluid" alt="{{picture.image}} visual">
+    </div>
+    {% endfor %}
+</div>
